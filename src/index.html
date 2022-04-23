@@ -1,0 +1,140 @@
+<head>
+    <link rel="stylesheet" href="./libs/css2.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            /* font-family: */
+            /* font-family: 'Press Start 2P', cursive; */
+        }
+
+        body {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .contian {
+            font-family: 'Press Start 2P', cursive;
+            position: relative;
+            /* size  follow canvas tag change */
+            display: inline-block;
+        }
+
+        .smaller {
+            width: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .timer {
+            width: 100px;
+            /* border: 1px red solid; */
+            /* background-color: #cfa; */
+            height: 60px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid white;
+            color: red;
+        }
+
+        .player,
+        .emeny {
+            position: relative;
+            display: flex;
+            /* healtg roll decoration */
+            justify-content: flex-end;
+            /* background-color: yellow; */
+            border-top: 4px solid white;
+            border-bottom: 4px solid white;
+            border-right: 4px solid white;
+            width: 100%;
+            height: 30px;
+        }
+
+        .emeny {
+            border-right: none;
+            border-left:4px solid white;
+            justify-content: flex-start;
+        }
+
+        .playerHealth,
+        .emenyHealth {
+            width: 100%;
+            background-color: blue;
+            /* position: absolute; */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+
+        .displayText {
+            /* border: 1px red solid; */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: red;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+        }
+
+        span {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            /* bottom: 0; */
+            top: 50%;
+            text-align: center;
+            color: red;
+        }
+
+        .ctrl {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script src="./libs/gsap.min.js"></script>
+    <script src="./libs/vue.js"></script>
+    <script src="./js/keyBind.js"></script>
+    <script src="./js/classes.js"></script>
+    <script src="./js/utils.js"></script>
+    <script defer src="./js/interactive.js"></script>
+    <script defer src="./control.js"></script>
+    <script defer src="./index.js"></script>
+</head>
+
+<body>
+    <div class="contian">
+        <div class="smaller">
+            <div class="player">
+                <div class="playerHealth"></div>
+            </div>
+            <div class="timer">timer</div>
+            <div class="emeny">
+                <div class="emenyHealth"></div>
+            </div>
+        </div>
+        <div class="displayText">
+        </div>
+        <!-- <span> player</span> -->
+        <canvas></canvas>
+    </div>
+    <div class="ctrl" id="box">
+        <button @click="stop">stop</button>
+        <button @click="continueCtrl">continue</button>
+        <div class="posP1">{{localtionP1}}</div>
+        <div class="posP2">{{localtionP2}}</div>
+    </div>
+</body>
